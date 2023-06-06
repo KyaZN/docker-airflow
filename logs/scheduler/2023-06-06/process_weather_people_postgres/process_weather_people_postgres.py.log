@@ -543,3 +543,333 @@ Traceback (most recent call last):
 airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
 [2023-06-06T00:13:37.804+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
 [2023-06-06T00:13:37.827+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.482 seconds
+[2023-06-06T00:14:07.884+0000] {processor.py:154} INFO - Started process (PID=15068) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:14:07.885+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:14:07.886+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:07.886+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:14:08.278+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:08.278+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:14:08.279+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:08.279+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:14:08.281+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:08.280+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:14:08.281+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:14:08.298+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.419 seconds
+[2023-06-06T00:14:38.443+0000] {processor.py:154} INFO - Started process (PID=15097) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:14:38.445+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:14:38.446+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:38.446+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:14:38.892+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:38.892+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:14:38.892+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:38.892+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:14:38.894+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:14:38.893+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:14:38.894+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:14:38.910+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.470 seconds
+[2023-06-06T00:15:09.055+0000] {processor.py:154} INFO - Started process (PID=15118) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:15:09.057+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:15:09.058+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:09.057+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:15:09.468+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:09.467+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:15:09.468+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:09.468+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:15:09.470+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:09.469+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:15:09.470+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:15:09.486+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.433 seconds
+[2023-06-06T00:15:39.640+0000] {processor.py:154} INFO - Started process (PID=15149) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:15:39.642+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:15:39.642+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:39.642+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:15:40.062+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:40.062+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:15:40.062+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:40.062+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:15:40.065+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:15:40.063+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:15:40.065+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:15:40.112+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.475 seconds
+[2023-06-06T00:16:10.280+0000] {processor.py:154} INFO - Started process (PID=15179) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:16:10.281+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:16:10.282+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:10.282+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:16:10.689+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:10.688+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:16:10.689+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:10.689+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:16:10.691+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:10.690+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:16:10.692+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:16:10.708+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.430 seconds
+[2023-06-06T00:16:40.847+0000] {processor.py:154} INFO - Started process (PID=15199) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:16:40.849+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:16:40.849+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:40.849+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:16:41.256+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:41.256+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:16:41.256+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:41.256+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:16:41.258+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:16:41.257+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:16:41.258+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:16:41.276+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.431 seconds
+[2023-06-06T00:17:11.447+0000] {processor.py:154} INFO - Started process (PID=15228) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:17:11.448+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:17:11.449+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:11.448+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:17:12.351+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:12.351+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:17:12.352+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:12.352+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:17:12.356+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:12.355+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:17:12.359+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:17:12.453+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 1.013 seconds
+[2023-06-06T00:17:42.607+0000] {processor.py:154} INFO - Started process (PID=15257) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:17:42.608+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:17:42.609+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:42.609+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:17:43.050+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:43.050+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:17:43.051+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:43.050+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:17:43.053+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:17:43.051+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:17:43.053+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:17:43.069+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.464 seconds
+[2023-06-06T00:18:13.211+0000] {processor.py:154} INFO - Started process (PID=15286) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:18:13.212+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:18:13.213+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:13.213+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:18:13.890+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:13.890+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:18:13.891+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:13.891+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:18:13.893+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:13.892+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:18:13.893+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:18:13.913+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.705 seconds
+[2023-06-06T00:18:44.051+0000] {processor.py:154} INFO - Started process (PID=15306) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:18:44.053+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:18:44.054+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:44.054+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:18:44.512+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:44.512+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:18:44.513+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:44.513+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:18:44.515+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:18:44.514+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:18:44.516+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:18:44.535+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.486 seconds
+[2023-06-06T00:19:14.700+0000] {processor.py:154} INFO - Started process (PID=15335) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:19:14.702+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:19:14.703+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:14.702+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:19:15.106+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:15.106+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:19:15.106+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:15.106+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:19:15.108+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:15.107+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:19:15.108+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:19:15.125+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.427 seconds
+[2023-06-06T00:19:45.268+0000] {processor.py:154} INFO - Started process (PID=15364) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:19:45.269+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:19:45.270+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:45.270+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:19:45.670+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:45.669+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:19:45.670+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:45.670+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:19:45.672+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:19:45.671+0000] {dagbag.py:449} ERROR - Failed to bag_dag: /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 437, in _process_modules
+    self.bag_dag(dag=dag, root_dag=dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 464, in bag_dag
+    self._bag_dag(dag=dag, root_dag=root_dag, recursive=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 472, in _bag_dag
+    check_cycle(dag)  # throws if a task cycle is found
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 78, in check_cycle
+    child_to_check = _check_adjacent_tasks(current_task_id, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/dag_cycle_tester.py", line 64, in _check_adjacent_tasks
+    raise AirflowDagCycleException(msg)
+airflow.exceptions.AirflowDagCycleException: Cycle detected in DAG: process_weather_people_postgres. Faulty task: group_users.slack_notification_1
+[2023-06-06T00:19:45.672+0000] {processor.py:768} WARNING - No viable dags retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:19:45.689+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.423 seconds
+[2023-06-06T00:20:03.344+0000] {processor.py:154} INFO - Started process (PID=15375) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:20:03.345+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:20:03.346+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:03.346+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:20:03.783+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:03.783+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:20:03.784+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:03.784+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:20:03.790+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:20:03.998+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:03.997+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:20:04.022+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:04.021+0000] {dag.py:3340} INFO - Setting next_dagrun for process_weather_people_postgres to 2023-06-05T00:00:00+00:00, run_after=2023-06-06T00:00:00+00:00
+[2023-06-06T00:20:04.059+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.717 seconds
+[2023-06-06T00:20:34.214+0000] {processor.py:154} INFO - Started process (PID=15404) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:20:34.216+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:20:34.216+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:34.216+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:20:34.619+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:34.619+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:20:34.619+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:34.619+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:20:34.624+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:20:34.784+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:34.784+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:20:34.812+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:20:34.812+0000] {dag.py:3340} INFO - Setting next_dagrun for process_weather_people_postgres to 2023-06-05T00:00:00+00:00, run_after=2023-06-06T00:00:00+00:00
+[2023-06-06T00:20:34.834+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.623 seconds
+[2023-06-06T00:21:04.998+0000] {processor.py:154} INFO - Started process (PID=15433) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:21:05.000+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:21:05.001+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:05.001+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:21:05.438+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:05.438+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:21:05.438+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:05.438+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:21:05.443+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:21:05.594+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:05.593+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:21:05.635+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.639 seconds
+[2023-06-06T00:21:35.784+0000] {processor.py:154} INFO - Started process (PID=15453) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:21:35.784+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:21:35.785+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:35.785+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:21:36.206+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:36.206+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:21:36.207+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:36.206+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:21:36.212+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:21:36.401+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:21:36.401+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:21:36.449+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.668 seconds
+[2023-06-06T00:22:06.633+0000] {processor.py:154} INFO - Started process (PID=15482) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:22:06.634+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:22:06.635+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:06.635+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:22:07.082+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:07.081+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:22:07.082+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:07.082+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:22:07.088+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:22:07.261+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:07.261+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:22:07.303+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.673 seconds
+[2023-06-06T00:22:37.450+0000] {processor.py:154} INFO - Started process (PID=15511) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:22:37.451+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:22:37.452+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:37.452+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:22:37.866+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:37.866+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:22:37.867+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:37.867+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:22:37.872+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:22:38.041+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:22:38.040+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:22:38.089+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.642 seconds
+[2023-06-06T00:23:08.190+0000] {processor.py:154} INFO - Started process (PID=15531) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:23:08.191+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:23:08.192+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:08.192+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:23:08.676+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:08.676+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:23:08.677+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:08.676+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:23:08.687+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:23:08.932+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:08.931+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:23:08.986+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.798 seconds
+[2023-06-06T00:23:39.213+0000] {processor.py:154} INFO - Started process (PID=15560) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:23:39.217+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:23:39.220+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:39.219+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:23:39.840+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:39.840+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:23:39.840+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:39.840+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:23:39.846+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:23:40.005+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:23:40.005+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:23:40.056+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.853 seconds
+[2023-06-06T00:24:10.259+0000] {processor.py:154} INFO - Started process (PID=15589) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:24:10.260+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:24:10.261+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:10.261+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:24:10.690+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:10.690+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:24:10.690+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:10.690+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:24:10.695+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:24:10.851+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:10.851+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:24:10.897+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.641 seconds
+[2023-06-06T00:24:41.045+0000] {processor.py:154} INFO - Started process (PID=15619) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:24:41.046+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:24:41.048+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:41.047+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:24:41.739+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:41.739+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:24:41.740+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:41.739+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:24:41.745+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:24:41.912+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:24:41.912+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:24:41.979+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.938 seconds
+[2023-06-06T00:25:12.130+0000] {processor.py:154} INFO - Started process (PID=15640) to work on /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:25:12.131+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py for tasks to queue
+[2023-06-06T00:25:12.132+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:25:12.131+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:25:12.582+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:25:12.582+0000] {taskmixin.py:205} WARNING - Dependency <Task(PostgresOperator): create_users_table>, group_users.is_1_api_available already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:25:12.583+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:25:12.583+0000] {taskmixin.py:205} WARNING - Dependency <Task(HttpSensor): group_users.is_1_api_available>, create_users_table already registered for DAG: process_weather_people_postgres
+[2023-06-06T00:25:12.588+0000] {processor.py:766} INFO - DAG(s) dict_keys(['process_weather_people_postgres']) retrieved from /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py
+[2023-06-06T00:25:12.740+0000] {logging_mixin.py:120} INFO - [2023-06-06T00:25:12.740+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-06-06T00:25:12.784+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/process_weather_people_postgres/process_weather_people_postgres.py took 0.656 seconds

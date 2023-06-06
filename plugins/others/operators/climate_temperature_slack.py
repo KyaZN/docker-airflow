@@ -45,9 +45,7 @@ class ClimateNotificationSlackOperator(BaseOperator):
     def execute(self, context):
         if not isinstance(self.table_name, str):
             raise AirflowException(f"Argument 'table_name' of type {type(self.table_name)} is not a string.")
-        if not isinstance(self.table_predicate, str):
-            raise AirflowException(f"Argument 'table_predicate' of type {type(self.table_name)} is not a string.")
-        
+
         pg_hook = None
         if self.pg_conn:
             pg_hook = PostgresHook(self.pg_conn)

@@ -128,4 +128,4 @@ with DAG(dag_file_name,
             create_users_table >> is_api_available >> getting_user >> load_user_table >> weather_notification
     
 
-    start >> create_users_table >> group_users >> weather_notification >> end
+    start >> create_users_table >> group_users >> end

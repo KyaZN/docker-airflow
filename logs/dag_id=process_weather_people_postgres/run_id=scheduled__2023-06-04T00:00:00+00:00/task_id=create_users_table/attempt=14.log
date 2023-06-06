@@ -1,0 +1,36 @@
+[2023-06-06T00:21:49.765+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.create_users_table scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-06T00:21:49.777+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.create_users_table scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-06T00:21:49.777+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-06T00:21:49.778+0000] {taskinstance.py:1363} INFO - Starting attempt 14 of 17
+[2023-06-06T00:21:49.778+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-06T00:21:49.796+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_users_table> on 2023-06-04 00:00:00+00:00
+[2023-06-06T00:21:49.805+0000] {standard_task_runner.py:55} INFO - Started process 14408 to run task
+[2023-06-06T00:21:49.808+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'process_weather_people_postgres', 'create_users_table', 'scheduled__2023-06-04T00:00:00+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/process_weather_people_postgres/process_weather_people_postgres.py', '--cfg-path', '/tmp/tmp_7fa_bte']
+[2023-06-06T00:21:49.810+0000] {standard_task_runner.py:83} INFO - Job 126: Subtask create_users_table
+[2023-06-06T00:21:50.034+0000] {task_command.py:376} INFO - Running <TaskInstance: process_weather_people_postgres.create_users_table scheduled__2023-06-04T00:00:00+00:00 [running]> on host 1160da0dacdb
+[2023-06-06T00:21:50.164+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=data_eng
+AIRFLOW_CTX_DAG_ID=process_weather_people_postgres
+AIRFLOW_CTX_TASK_ID=create_users_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=14
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-04T00:00:00+00:00
+[2023-06-06T00:21:50.196+0000] {base.py:71} INFO - Using connection ID 'postgres_default' for task execution.
+[2023-06-06T00:21:50.216+0000] {sql.py:375} INFO - Running statement: CREATE TABLE IF NOT EXISTS bronze.user (
+    user_id int,
+    first_name varchar(200),
+    last_name varchar(200),
+    email varchar(150),
+    gender varchar(10),
+    age int,
+    city varchar(200),
+    lat_location varchar(200),
+    lon_location varchar(200)
+);, parameters: None
+[2023-06-06T00:21:50.226+0000] {postgres.py:96} INFO - NOTICE:  relation "user" already exists, skipping
+
+[2023-06-06T00:21:50.251+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=process_weather_people_postgres, task_id=create_users_table, execution_date=20230604T000000, start_date=20230606T002149, end_date=20230606T002150
+[2023-06-06T00:21:50.301+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-06-06T00:21:50.340+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

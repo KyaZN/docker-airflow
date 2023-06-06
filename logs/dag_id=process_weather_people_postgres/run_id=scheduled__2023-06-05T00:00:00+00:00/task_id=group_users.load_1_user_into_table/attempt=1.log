@@ -1,0 +1,26 @@
+[2023-06-06T00:21:48.322+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.group_users.load_1_user_into_table scheduled__2023-06-05T00:00:00+00:00 [queued]>
+[2023-06-06T00:21:48.334+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.group_users.load_1_user_into_table scheduled__2023-06-05T00:00:00+00:00 [queued]>
+[2023-06-06T00:21:48.335+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-06T00:21:48.335+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 4
+[2023-06-06T00:21:48.335+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-06T00:21:48.352+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): group_users.load_1_user_into_table> on 2023-06-05 00:00:00+00:00
+[2023-06-06T00:21:48.360+0000] {standard_task_runner.py:55} INFO - Started process 14405 to run task
+[2023-06-06T00:21:48.363+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'process_weather_people_postgres', 'group_users.load_1_user_into_table', 'scheduled__2023-06-05T00:00:00+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/process_weather_people_postgres/process_weather_people_postgres.py', '--cfg-path', '/tmp/tmpkuuzt3a_']
+[2023-06-06T00:21:48.365+0000] {standard_task_runner.py:83} INFO - Job 125: Subtask group_users.load_1_user_into_table
+[2023-06-06T00:21:48.426+0000] {task_command.py:376} INFO - Running <TaskInstance: process_weather_people_postgres.group_users.load_1_user_into_table scheduled__2023-06-05T00:00:00+00:00 [running]> on host 1160da0dacdb
+[2023-06-06T00:21:48.500+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=data_eng
+AIRFLOW_CTX_DAG_ID=process_weather_people_postgres
+AIRFLOW_CTX_TASK_ID=group_users.load_1_user_into_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-05T00:00:00+00:00
+[2023-06-06T00:21:48.501+0000] {postgres.py:129} INFO - Running copy expert: COPY bronze.user FROM STDIN, filename: /tmp/user_inputttt_1.csv
+[2023-06-06T00:21:48.513+0000] {base.py:71} INFO - Using connection ID 'postgres_default' for task execution.
+[2023-06-06T00:21:48.539+0000] {load_user_into_table.py:9} INFO - The data was loaded successfully.
+[2023-06-06T00:21:48.539+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-06-06T00:21:48.551+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=process_weather_people_postgres, task_id=group_users.load_1_user_into_table, execution_date=20230605T000000, start_date=20230606T002148, end_date=20230606T002148
+[2023-06-06T00:21:48.575+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-06-06T00:21:48.608+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check
