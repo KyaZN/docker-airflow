@@ -17,6 +17,7 @@ class ClimateNotificationSlackOperator(BaseOperator):
                 message: str = '',
                 icon_emoji: str = None,
                 table_name: str = None,
+                table_filter: str = None,
                 endpoint_fixed: str = None,
                 *args,
                 **kwargs
@@ -29,6 +30,7 @@ class ClimateNotificationSlackOperator(BaseOperator):
         self.message = message
         self.icon_emoji = icon_emoji
         self.table_name = table_name
+        self.table_filter = table_filter
         self.channel='#airflow-weather_alerts'
         self.endpoint_fixed = endpoint_fixed
         self.sql=None
@@ -54,17 +56,16 @@ class ClimateNotificationSlackOperator(BaseOperator):
         
         conn = pg_hook.get_conn()
         cursor = conn.cursor()
-        self.sql = f""" SELECT id, city, lat, lon FROM {self.table_name} """
+        self.sql = f""" SELECT user_id, city, lat_location, lon_location FROM {self.table_name} {self.table_filter}"""
         cursor.execute(self.sql)
         rows = cursor.fetchall()
         
         for row in rows:
             logging.info(row)
-
-            endpoint_with_params = self.endpoint_fixed + f'&lat={row[2]}&lon={row[3]}'
+            endpoint_with_params = self.endpoint_fixed + f'&lat={str(row[2])}&lon={str(row[3])}'
 
             celsius = self.get_weather(endpoint_with_params)
-            message_info = f'El clima en {row[1]} es de {celsius}C°'
+            message_info = 'El clima en {} es de {:.2f}C°'.format(row[1], celsius)
         
             slack_alert = SlackWebhookOperator(
                 task_id=f"slack_weather_info_alert_for{row[0]}",

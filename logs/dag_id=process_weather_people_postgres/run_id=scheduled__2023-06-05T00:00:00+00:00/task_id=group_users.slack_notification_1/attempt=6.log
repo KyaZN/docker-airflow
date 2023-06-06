@@ -1,0 +1,31 @@
+[2023-06-06T00:45:54.634+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.group_users.slack_notification_1 scheduled__2023-06-05T00:00:00+00:00 [queued]>
+[2023-06-06T00:45:54.645+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.group_users.slack_notification_1 scheduled__2023-06-05T00:00:00+00:00 [queued]>
+[2023-06-06T00:45:54.645+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-06T00:45:54.645+0000] {taskinstance.py:1363} INFO - Starting attempt 6 of 9
+[2023-06-06T00:45:54.645+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-06T00:45:54.660+0000] {taskinstance.py:1383} INFO - Executing <Task(ClimateNotificationSlackOperator): group_users.slack_notification_1> on 2023-06-05 00:00:00+00:00
+[2023-06-06T00:45:54.669+0000] {standard_task_runner.py:55} INFO - Started process 15720 to run task
+[2023-06-06T00:45:54.672+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'process_weather_people_postgres', 'group_users.slack_notification_1', 'scheduled__2023-06-05T00:00:00+00:00', '--job-id', '188', '--raw', '--subdir', 'DAGS_FOLDER/process_weather_people_postgres/process_weather_people_postgres.py', '--cfg-path', '/tmp/tmpsxkayy90']
+[2023-06-06T00:45:54.673+0000] {standard_task_runner.py:83} INFO - Job 188: Subtask group_users.slack_notification_1
+[2023-06-06T00:45:54.737+0000] {task_command.py:376} INFO - Running <TaskInstance: process_weather_people_postgres.group_users.slack_notification_1 scheduled__2023-06-05T00:00:00+00:00 [running]> on host 1160da0dacdb
+[2023-06-06T00:45:54.879+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=data_eng
+AIRFLOW_CTX_DAG_ID=process_weather_people_postgres
+AIRFLOW_CTX_TASK_ID=group_users.slack_notification_1
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-05T00:00:00+00:00
+[2023-06-06T00:45:54.895+0000] {base.py:71} INFO - Using connection ID 'postgres_default' for task execution.
+[2023-06-06T00:45:54.920+0000] {climate_temperature_slack.py:62} INFO - (1, 'Dublyani', '74.2580', '-40.7323')
+[2023-06-06T00:45:54.921+0000] {logging_mixin.py:120} INFO - 1
+[2023-06-06T00:45:54.921+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/plugins/others/operators/climate_temperature_slack.py", line 65, in execute
+    endpoint_with_params = self.endpoint_fixed + f'&lat={row[2]}&lon={row[3]}'
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+[2023-06-06T00:45:54.932+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=process_weather_people_postgres, task_id=group_users.slack_notification_1, execution_date=20230605T000000, start_date=20230606T004554, end_date=20230606T004554
+[2023-06-06T00:45:54.951+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 188 for task group_users.slack_notification_1 (unsupported operand type(s) for +: 'NoneType' and 'str'; 15720)
+[2023-06-06T00:45:55.005+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-06-06T00:45:55.035+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -93,7 +93,7 @@ with DAG(dag_file_name,
     #api.openweathermap.org/data/2.5/weather?id=524901&appid=c24cd5d9e02aaefaa18ab6d53b9956bclat=58.3934&lon=-63.2743
 
     with TaskGroup('group_users') as group_users:
-        for i in range(1,2):
+        for i in range(1,3):
             is_api_available = HttpSensor(
                 task_id=f"is_{i}_api_available",
                 http_conn_id ="random_people_api",
@@ -123,6 +123,8 @@ with DAG(dag_file_name,
                 slack_conn='slack_connection_airflow',
                 message='El area de marketing ya puede usar la información',
                 table_name='bronze.user',
+                table_filter= f'where user_id = {i}',
+                endpoint_fixed=endpoint_weather
             )
 
             create_users_table >> is_api_available >> getting_user >> load_user_table >> weather_notification
