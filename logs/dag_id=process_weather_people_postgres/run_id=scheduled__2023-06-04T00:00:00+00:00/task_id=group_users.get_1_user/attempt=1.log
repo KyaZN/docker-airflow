@@ -1,0 +1,32 @@
+[2023-06-05T21:37:48.868+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.group_users.get_1_user scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-05T21:37:48.881+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.group_users.get_1_user scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-05T21:37:48.881+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-05T21:37:48.881+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 4
+[2023-06-05T21:37:48.881+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-05T21:37:48.898+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): group_users.get_1_user> on 2023-06-04 00:00:00+00:00
+[2023-06-05T21:37:48.907+0000] {standard_task_runner.py:55} INFO - Started process 6488 to run task
+[2023-06-05T21:37:48.909+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'process_weather_people_postgres', 'group_users.get_1_user', 'scheduled__2023-06-04T00:00:00+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/process_weather_people_postgres/process_weather_people_postgres.py', '--cfg-path', '/tmp/tmp9jjmeeio']
+[2023-06-05T21:37:48.911+0000] {standard_task_runner.py:83} INFO - Job 79: Subtask group_users.get_1_user
+[2023-06-05T21:37:48.972+0000] {task_command.py:376} INFO - Running <TaskInstance: process_weather_people_postgres.group_users.get_1_user scheduled__2023-06-04T00:00:00+00:00 [running]> on host 1160da0dacdb
+[2023-06-05T21:37:49.041+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=data_eng
+AIRFLOW_CTX_DAG_ID=process_weather_people_postgres
+AIRFLOW_CTX_TASK_ID=group_users.get_1_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-04T00:00:00+00:00
+[2023-06-05T21:37:49.632+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/process_weather_people_postgres/functions/get_user.py", line 18, in get_user
+    user = json.loads(response.text)['response']["results"][0]
+KeyError: 'response'
+[2023-06-05T21:37:49.641+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=process_weather_people_postgres, task_id=group_users.get_1_user, execution_date=20230604T000000, start_date=20230605T213748, end_date=20230605T213749
+[2023-06-05T21:37:49.654+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 79 for task group_users.get_1_user ('response'; 6488)
+[2023-06-05T21:37:49.684+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-06-05T21:37:49.713+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

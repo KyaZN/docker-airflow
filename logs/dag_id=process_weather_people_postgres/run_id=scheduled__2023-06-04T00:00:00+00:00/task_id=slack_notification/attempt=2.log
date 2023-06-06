@@ -1,0 +1,50 @@
+[2023-06-05T23:28:22.405+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.slack_notification scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-05T23:28:22.416+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.slack_notification scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-05T23:28:22.416+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-05T23:28:22.417+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 4
+[2023-06-05T23:28:22.417+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-05T23:28:22.432+0000] {taskinstance.py:1383} INFO - Executing <Task(SlackWebhookOperator): slack_notification> on 2023-06-04 00:00:00+00:00
+[2023-06-05T23:28:22.440+0000] {standard_task_runner.py:55} INFO - Started process 11813 to run task
+[2023-06-05T23:28:22.444+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'process_weather_people_postgres', 'slack_notification', 'scheduled__2023-06-04T00:00:00+00:00', '--job-id', '109', '--raw', '--subdir', 'DAGS_FOLDER/process_weather_people_postgres/process_weather_people_postgres.py', '--cfg-path', '/tmp/tmp8t7zhmfn']
+[2023-06-05T23:28:22.445+0000] {standard_task_runner.py:83} INFO - Job 109: Subtask slack_notification
+[2023-06-05T23:28:22.502+0000] {task_command.py:376} INFO - Running <TaskInstance: process_weather_people_postgres.slack_notification scheduled__2023-06-04T00:00:00+00:00 [running]> on host 1160da0dacdb
+[2023-06-05T23:28:22.568+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=data_eng
+AIRFLOW_CTX_DAG_ID=process_weather_people_postgres
+AIRFLOW_CTX_TASK_ID=slack_notification
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-04T00:00:00+00:00
+[2023-06-05T23:28:22.569+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/slack/operators/slack_webhook.py:173: UserWarning: Found unexpected keyword-argument(s) 'link_names' in `send` method. This argument(s) have no effect.
+  link_names=self.link_names,
+
+[2023-06-05T23:28:22.569+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/slack/hooks/slack_webhook.py:47: UserWarning: You cannot override the default channel (chosen by the user who installed your app), username, or icon when you're using Incoming Webhooks to post messages. Instead, these values will always inherit from the associated Slack app configuration. See: https://api.slack.com/messaging/webhooks#advanced_message_formatting. It is possible to change this values only in Legacy Slack Integration Incoming Webhook: https://api.slack.com/legacy/custom-integrations/messaging/webhooks#legacy-customizations
+  resp = func(*args, **kwargs)
+
+[2023-06-05T23:28:22.588+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/slack/operators/slack_webhook.py", line 173, in execute
+    link_names=self.link_names,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/slack/hooks/slack_webhook.py", line 397, in send
+    return self.send_dict(body=body, headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/slack/hooks/slack_webhook.py", line 47, in wrapper
+    resp = func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/slack/hooks/slack_webhook.py", line 347, in send_dict
+    return self.client.send_dict(body, headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/cached_property.py", line 36, in __get__
+    value = obj.__dict__[self.func.__name__] = self.func(obj)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/slack/hooks/slack_webhook.py", line 198, in client
+    return WebhookClient(**self._get_conn_params())
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/slack/hooks/slack_webhook.py", line 218, in _get_conn_params
+    conn = self.get_connection(self.slack_webhook_conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 70, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 432, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `slack_conn` isn't defined
+[2023-06-05T23:28:22.591+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=process_weather_people_postgres, task_id=slack_notification, execution_date=20230604T000000, start_date=20230605T232822, end_date=20230605T232822
+[2023-06-05T23:28:22.603+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 109 for task slack_notification (The conn_id `slack_conn` isn't defined; 11813)
+[2023-06-05T23:28:22.616+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-06-05T23:28:22.641+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

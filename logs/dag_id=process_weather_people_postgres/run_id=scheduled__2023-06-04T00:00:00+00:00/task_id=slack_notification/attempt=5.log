@@ -1,0 +1,29 @@
+[2023-06-05T23:40:12.072+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.slack_notification scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-05T23:40:12.094+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: process_weather_people_postgres.slack_notification scheduled__2023-06-04T00:00:00+00:00 [queued]>
+[2023-06-05T23:40:12.094+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-05T23:40:12.094+0000] {taskinstance.py:1363} INFO - Starting attempt 5 of 8
+[2023-06-05T23:40:12.094+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-05T23:40:12.116+0000] {taskinstance.py:1383} INFO - Executing <Task(SlackWebhookOperator): slack_notification> on 2023-06-04 00:00:00+00:00
+[2023-06-05T23:40:12.125+0000] {standard_task_runner.py:55} INFO - Started process 12405 to run task
+[2023-06-05T23:40:12.128+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'process_weather_people_postgres', 'slack_notification', 'scheduled__2023-06-04T00:00:00+00:00', '--job-id', '116', '--raw', '--subdir', 'DAGS_FOLDER/process_weather_people_postgres/process_weather_people_postgres.py', '--cfg-path', '/tmp/tmpz1ckhdtu']
+[2023-06-05T23:40:12.132+0000] {standard_task_runner.py:83} INFO - Job 116: Subtask slack_notification
+[2023-06-05T23:40:12.191+0000] {task_command.py:376} INFO - Running <TaskInstance: process_weather_people_postgres.slack_notification scheduled__2023-06-04T00:00:00+00:00 [running]> on host 1160da0dacdb
+[2023-06-05T23:40:12.271+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=data_eng
+AIRFLOW_CTX_DAG_ID=process_weather_people_postgres
+AIRFLOW_CTX_TASK_ID=slack_notification
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=5
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-04T00:00:00+00:00
+[2023-06-05T23:40:12.274+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/slack/operators/slack_webhook.py:173: UserWarning: Found unexpected keyword-argument(s) 'link_names' in `send` method. This argument(s) have no effect.
+  link_names=self.link_names,
+
+[2023-06-05T23:40:12.275+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/providers/slack/hooks/slack_webhook.py:47: UserWarning: You cannot override the default channel (chosen by the user who installed your app), username, or icon when you're using Incoming Webhooks to post messages. Instead, these values will always inherit from the associated Slack app configuration. See: https://api.slack.com/messaging/webhooks#advanced_message_formatting. It is possible to change this values only in Legacy Slack Integration Incoming Webhook: https://api.slack.com/legacy/custom-integrations/messaging/webhooks#legacy-customizations
+  resp = func(*args, **kwargs)
+
+[2023-06-05T23:40:12.291+0000] {base.py:71} INFO - Using connection ID 'slack_connection_***' for task execution.
+[2023-06-05T23:40:12.831+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=process_weather_people_postgres, task_id=slack_notification, execution_date=20230604T000000, start_date=20230605T234012, end_date=20230605T234012
+[2023-06-05T23:40:12.867+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2023-06-05T23:40:12.895+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check
